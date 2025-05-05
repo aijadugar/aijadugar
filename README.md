@@ -14,7 +14,7 @@
 > enchant --with "Neural Networks, GPT, BERT, RNNs, CNNs"
 > git commit -m "Built Full-Stack AI systems using Django, Flask, Streamlit, Vue.js, React.js"
 > conjure --db "PostgreSQL" --with "Django"
-> hack --event "CodeDot" --role "Backend"
+> hack --team "CodeDot" --role "Backend"
 ```
 
 ### 📫 Contact the Wizard
