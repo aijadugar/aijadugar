@@ -1,6 +1,6 @@
 # 🎩🪄 aijadugar - Where Technology Meets Magic 🪄🎩
 
-🧙‍♂️ _I am aijadugar_ — **AI & Data Science student**, conjuring intelligent solutions at the intersection of **Neural Networks**, **Generative AI**, and **Large Language Models (LLMs)**. My spellbook includes **Natural Language Processing (NLP)**, **Deep Learning**, **Machine Learning** and the sacred scrolls of **Statistics & Data Analytics**. From crafting **Full-Stack AI systems** to summoning insights with data, I bring enchantment to every line of code.  
+🧙‍♂️ _I am_ — **AI & Data Science student**, conjuring intelligent solutions at the intersection of **Neural Networks**, **Generative AI**, and **Large Language Models (LLMs)**. My spellbook includes **Natural Language Processing (NLP)**, **Deep Learning**, **Machine Learning** and the sacred scrolls of **Statistics & Data Analytics**. From crafting **Full-Stack AI systems** to summoning insights with data, I bring enchantment to every line of code.  
 
 ## 🌐 Portfolio at: [https://aijadugar.vercel.app](https://aijadugar.vercel.app)
 
