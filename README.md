@@ -1,7 +1,7 @@
 # .- / .. / .--- / .- / -.. / ..- / --. / .- / .-. // -....- // .-- / .... / . / .-. / . // - / . -.-. / .... / -. --- / .-.. / --- / --. / -.-- // -- / . / . - / ... // -- / .- / --. / .. / -.-.
 
 
-_I am_ — **AI & Data Science student** self focused on building intelligent solutions using **Neural Networks**, **Generative AI**, and **Large Language Models (LLMs)**. I work with **NLP**, **Deep Learning**, **Machine Learning**, and **Statistics & Data Analytics**. I create **full-stack AI systems services** and like to **researching open-source AI tools**.
+_I am_ — **AI & Data Science student** self focused on building intelligent solutions using **Neural Networks**, **Agents**, **Generative AI**, and **Large Language Models (LLMs)**. I work with **NLP**, **Deep Learning**, **Machine Learning**, and **Statistics & Data Analytics**. I create **full-stack AI systems services** and like to **researching open-source AI tools**.
 
 ## 🌐 Portfolio at: [https://aijadugar.vercel.app](https://aijadugar.vercel.app)
 
