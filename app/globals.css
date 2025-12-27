@@ -123,11 +123,6 @@
     @apply bg-background text-foreground;
   }
 
-  /* Updated magic wand cursor with better positioning */
-  body,
-  * {
-    cursor: url("/images/wand-cursor.png") 0 0, auto !important;
-  }
 
   /* Pointer cursor for interactive elements */
   button,
@@ -136,7 +131,7 @@
   input[type="submit"],
   input[type="button"],
   select {
-    cursor: url("/images/wand-cursor.png") 0 0, pointer !important;
+    cursor: 0 0, pointer !important;
   }
 
   /* Text cursor for inputs */
@@ -145,7 +140,7 @@
   input[type="password"],
   input[type="search"],
   textarea {
-    cursor: url("/images/wand-cursor.png") 0 0, text !important;
+    cursor: 0 0, text !important;
   }
 }
 

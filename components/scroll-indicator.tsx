@@ -1,18 +1,32 @@
 "use client"
 
-import { useState } from "react"
-import { Github, Linkedin, Code2, Mail, Twitter } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Github, Linkedin, Code2, Mail, Notebook } from "lucide-react"
 
 export function ScrollIndicator() {
   const [isHovering, setIsHovering] = useState(false)
 
   const socialLinks = [
-    { name: "LinkedIn", url: "https://linkedin.com/in/yourprofile", icon: Linkedin, color: "hover:text-[#0077b5]" },
-    { name: "GitHub", url: "https://github.com/yourprofile", icon: Github, color: "hover:text-[#6e5494]" },
-    { name: "LeetCode", url: "https://leetcode.com/yourprofile", icon: Code2, color: "hover:text-[#ffa116]" },
-    { name: "Twitter", url: "https://twitter.com/yourprofile", icon: Twitter, color: "hover:text-[#1da1f2]" },
-    { name: "Email", url: "mailto:your.email@example.com", icon: Mail, color: "hover:text-primary" },
+    { name: "GitHub", url: "https://github.com/aijadugar", icon: Github, color: "hover:text-[#6e5494]" },
+    { name: "LinkedIn", url: "https://linkedin.com/in/aijadugar", icon: Linkedin, color: "hover:text-[#0077b5]" },
+    { name: "Kaggle", url: "https://kaggle.com/bariankitvinod", icon: Notebook, color: "hover:text-[#1da1f2]" },
+    { name: "LeetCode", url: "https://leetcode.com/u/aijadugar", icon: Code2, color: "hover:text-[#ffa116]" },
+    { name: "Email", url: "mailto:vbari8527@gmail.com", icon: Mail, color: "hover:text-primary" },
   ]
+
+  useEffect(() => {
+  if (!isHovering) return
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setIsHovering(false)
+    }
+  }
+
+  window.addEventListener("keydown", handleKeyDown)
+  return () => window.removeEventListener("keydown", handleKeyDown)
+}, [isHovering])
+
 
   return (
     <div className="fixed bottom-8 left-1/2 z-50 -translate-x-1/2">
@@ -41,9 +55,21 @@ export function ScrollIndicator() {
               {/* Glow */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 via-transparent to-accent/10 pointer-events-none" />
 
-              <h3 className="text-lg font-serif text-center mb-4">
-                Connect With Me
-              </h3>
+              <a 
+  href="/Ankit's_CV.pdf"
+  download
+  className="group relative flex items-center gap-4 px-6 py-4 mb-4 rounded-2xl border border-primary/30 bg-gradient-to-br from-black/60 to-black/40 backdrop-blur-xl shadow-lg hover:shadow-2xl transition-all"
+>
+<img
+  src="images/resume-spell.png"
+  alt="Magical Resume Bottle"
+  className="w-10 h-10 object-contain drop-shadow-[0_0_12px_rgba(255,200,120,0.6)] group-hover:scale-110 transition-transform"
+/>
+
+  <span className="text-sm font-medium tracking-wide text-foreground group-hover:text-primary transition-colors">
+    Download Resume
+  </span>
+</a>
 
               <div className="space-y-3">
                 {socialLinks.map((link) => {

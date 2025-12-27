@@ -26,13 +26,13 @@ export function HeroSection() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-2xl space-y-8 pt-20">
             {/* Subtitle */}
-<div className="flex items-center gap-2">
-  <Flame className="h-5 w-5 text-primary filter drop-shadow-[0_0_6px_rgba(255,120,0,0.6)]" />
+            <div className="flex items-center gap-2">
+              <Flame className="h-5 w-5 text-primary filter drop-shadow-[0_0_6px_rgba(255,120,0,0.6)]" />
 
-  <span className="font-light tracking-[0.2em] text-primary uppercase text-sm">
-    Experience an Extraordinary
-  </span>
-</div>
+              <span className="font-light tracking-[0.2em] text-primary uppercase text-sm">
+                Experience an Extraordinary
+              </span>
+            </div>
 
 
             {/* Main Heading */}
@@ -48,7 +48,7 @@ export function HeroSection() {
             {/* Description */}
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground/90 font-light">
               {
-                "Where reality bends and wonder comes alive. Experience spellbinding illusions, mystical performances, and unforgettable moments of pure enchantment."
+                "Researching the world of AI and integrating it into custom-built software to deliver innovative services. Contributing intelligence to open-source AI projects and uncovering the magic behind building neural networks that mimic the human brain."
               }
             </p>
 
