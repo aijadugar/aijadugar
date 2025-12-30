@@ -1,6 +1,6 @@
 # .- / .. / .--- / .- / -.. / ..- / --. / .- / .-. // -....- // .-- / .... / . / .-. / . // - / . -.-. / .... / -. --- / .-.. / --- / --. / -.-- // -- / . / . - / ... // -- / .- / --. / .. / -.-.
 
-*I am* ~~ **AI & Data Science student** self focused on building intelligent solutions using **Neural Networks**, **Agents**, **Generative AI**, and **Large Language Models (LLMs)**.
+*I am Ankit* ~~ **AI & Data Science student** self focused on building intelligent solutions using **Neural Networks**, **Agents**, **Generative AI**, and **Large Language Models (LLMs)**.
 
 I work with **Natural Language Processing (NLP)**, **Deep Learning**, **Machine Learning**, and **Statistics & Data Analytics**. I create **full‑stack AI systems & services** and enjoy **researching open‑source AI tools**.
 
