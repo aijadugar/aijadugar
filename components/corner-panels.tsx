@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
-import { Sparkles, Code, Award, Wand2 } from "lucide-react"
+import { Sparkles, Code, Award, Wand2, ExternalLink, Github } from "lucide-react"
 import { MagicalParticles } from "./magical-particles"
 
 interface Section {
@@ -22,54 +22,54 @@ interface Section {
 }
 
 const sections: Section[] = [
-{
-  id: "experience",
-  title: "Experience",
-  icon: <Sparkles className="w-5 h-5" />,
-  position: "top-left",
-  content: {
-    subtitle: "Professional Journey",
-    items: [
-      {
-        heading: "AI Researcher ~ The SMM Hub",
-        description: "Jun 2025 ~ Jul 2025 | Mumbai, India",
-        bullets: [
-          "Developed a real-time Flask-based AI chatbot with 95% accurate user data capture for lead tracking.",
-          "Proposed and delivered 5+ AI-driven media generation tools, improving creative team accuracy by 30%.",
-          "Built AI agents for SEO automation, generating blog drafts with embedded image prompts from a single topic input.",
-          "Integrated secure authentication systems and automated Google Sheets logging, boosting image & video generation efficiency by 40%.",
-        ],
-      },
-      {
-        heading: "Data Analytics Virtual Intern ~ Godrej Infotech",
-        description: "Oct 2024 ~ Jan 2025 | Mumbai, India",
-        bullets: [
-          "Designed interactive Power BI dashboards using dynamic filters and advanced DAX measures.",
-          "Enhanced market analytics and dashboard presentation for improved data-driven decision-making.",
-          "Translated raw datasets into actionable business insights for stakeholders.",
-        ],
-      },
-      {
-        heading: "Artificial Intelligence Intern ~ Coincent AI",
-        description: "Jul 2024 ~ Oct 2024 | Mumbai, India",
-        bullets: [
-          "Developed and integrated machine learning models into production-ready web applications.",
-          "Worked on CNN-based NLP models, improving performance through hyperparameter tuning.",
-          "Collaborated with cross-functional teams to deploy scalable AI solutions.",
-        ],
-      },
-      {
-        heading: "Data Science Intern ~ Acmegrade",
-        description: "Dec 2023 ~ Feb 2024 | Mumbai, India",
-        bullets: [
-          "Preprocessed and cleaned 10,000+ data records using Python data science libraries.",
-          "Conducted Exploratory Data Analysis (EDA) to identify trends, patterns, and insights.",
-          "Strengthened practical understanding of data pipelines, statistics, and model readiness.",
-        ],
-      },
-    ],
+  {
+    id: "experience",
+    title: "Experience",
+    icon: <Sparkles className="w-5 h-5" />,
+    position: "top-left",
+    content: {
+      subtitle: "Professional Journey",
+      items: [
+        {
+          heading: "AI Researcher ~ The SMM Hub",
+          description: "Jun 2025 ~ Nov 2025 | Mumbai, India",
+          bullets: [
+            "Developed a real-time Flask-based AI chatbot with 95% accurate user data capture for lead tracking.",
+            "Proposed and delivered 5+ AI-driven media generation tools, improving creative team accuracy by 30%.",
+            "Built AI agents for SEO automation, generating blog drafts with embedded image prompts from a single topic input.",
+            "Integrated secure authentication systems and automated Google Sheets logging, boosting image & video generation efficiency by 40%.",
+          ],
+        },
+        {
+          heading: "Data Analytics Virtual Intern ~ Godrej Infotech",
+          description: "Oct 2024 ~ Jan 2025 | Mumbai, India",
+          bullets: [
+            "Designed interactive Power BI dashboards using dynamic filters and advanced DAX measures.",
+            "Enhanced market analytics and dashboard presentation for improved data-driven decision-making.",
+            "Translated raw datasets into actionable business insights for stakeholders.",
+          ],
+        },
+        {
+          heading: "Artificial Intelligence Intern ~ Coincent AI",
+          description: "Jul 2024 ~ Oct 2024 | Mumbai, India",
+          bullets: [
+            "Developed and integrated machine learning models into production-ready web applications.",
+            "Worked on CNN-based NLP models, improving performance through hyperparameter tuning.",
+            "Collaborated with cross-functional teams to deploy scalable AI solutions.",
+          ],
+        },
+        {
+          heading: "Data Science Intern ~ Acmegrade",
+          description: "Dec 2023 ~ Feb 2024 | Mumbai, India",
+          bullets: [
+            "Preprocessed and cleaned 10,000+ data records using Python data science libraries.",
+            "Conducted Exploratory Data Analysis (EDA) to identify trends, patterns, and insights.",
+            "Strengthened practical understanding of data pipelines, statistics, and model readiness.",
+          ],
+        },
+      ],
+    },
   },
-},
   {
     id: "about",
     title: "About",
@@ -81,7 +81,7 @@ const sections: Section[] = [
         {
           heading: "Philosophy",
           bullets: [
-            "I'm Ankit Bari, Founder of SiteVPN, an AI Researcher & Full-Stack Software Developer focused on building intelligent, real-world problem-solving services.",
+            "I'm Ankit Bari, an AI Researcher & Full-Stack Software Developer focused on building intelligent, real-world problem-solving services.",
             "With a good foundation in Machine Learning, Deep Learning, NLP, Computer Vision, Generative AI, and Blockchain, I design and deploy scalable, AI-powered applications.",
             "I enjoy working at the intersection of AI research, system design, and product engineering, contributing to open-source and solving complex, real-world problems.",
           ],
@@ -89,87 +89,91 @@ const sections: Section[] = [
         {
           heading: "Background",
           bullets: [
-            "Currently leading the design, development, and long-term maintenance of SiteVPN.",
+            "Previously led the end-to-end design, development, and long-term maintenance of SiteVPN.",
             "Competitive kaggler, consistent participation in competitions, notebooks, and write-ups.",
             "Open-source contributor, actively contributing to AI tool repositories and Python Foundation projects.",
-            "Hackathon Competitor, regular participant in college and national-level hackathons and innovation challenges",
+            "Hackathon Competitor, regular participant in national-level hackathons and innovation challenges",
           ],
         },
       ],
     },
   },
-{
-  id: "projects",
-  title: "Projects",
-  icon: <Code className="w-5 h-5" />,
-  position: "bottom-left",
-  content: {
-    subtitle: "Signature Acts",
-    items: [
-      {
-        heading: "Synapse Ledger",
-        description: "Decentralized Data Marketplace for AI Training",
-        bullets: [
-          "Designed an Express.js backend enabling secure interaction between Developers and Contributors.",
-          "Engineered a custom blockchain using Tendermint with an ABCI application for immutable data records.",
-          "Built a scalable full-stack system integrating React, Node.js, Flask, and blockchain infrastructure.",
-          "Focused on decentralized data ownership for AI model training pipelines.",
-        ],
-      },
-      {
-        heading: "ID Year Detection using Computer Vision",
-        description: "Real-time Student Year Detection System",
-        bullets: [
-          "Developed a computer vision system to detect and rank students’ academic year in real time with ~85% accuracy.",
-          "Automated student identification to reduce manual effort and confusion in laboratory environments.",
-          "Implemented the system using OpenCV, Django backend, and Next.js frontend.",
-        ],
-      },
-      {
-        heading: "Comm AI",
-        description: "Human Communication Analysis via Text & Speech",
-        bullets: [
-          "Built a full-stack AI platform for question answering, evaluation, conversation reports, and learning analysis.",
-          "Developed backend APIs using Django for handling AI-driven workflows.",
-          "Integrated NLP and speech-based interaction using Gemini API.",
-        ],
-      },
-    ],
+  {
+    id: "projects",
+    title: "Projects",
+    icon: <Code className="w-5 h-5" />,
+    position: "bottom-left",
+    content: {
+      subtitle: "Signature Acts",
+      items: [
+        {
+          heading: "YAR Coin",
+          description: "(React.js, Express.js, MongoDB, Python, Hardhat, Metamask) | Live: https://yarcoin.vercel.app/ | Code: https://github.com/aijadugar/YAR-Coin-2.0",
+          bullets: [
+            "Deployed a full-stack decentralized reputation and reward ecosystem with 8 core modules, including live auctions and contribution tracking.",
+            "Architected backend infrastructure with secure WebSocket communication, reducing manual record management workload by 89%.",
+          ],
+        },
+        {
+          heading: "Comm AI",
+          description: "(React.js, Django, SQLite, Python, NLP, Scikit-learn, PyTorch, Gemini API, ElevenLabs STT API) | Live: https://commai-f4kj.onrender.com/ | Code: https://github.com/aijadugar/commai-django",
+          bullets: [
+            "Created an AI-powered communication analysis tool supporting text and speech, delivering 7 core feedback and recommendation modules.",
+            "Engineered a Django pipeline integrating LLMs, ML, and neural networks to automatically assess communication levels and generate actionable insights with 90% accuracy.",
+          ],
+        },
+        {
+          heading: "ID Year Detection Using CV",
+          description: "(Next.js, TypeScript, Django, Python, OpenCV) | Live: https://id-year-detection-using-computer-vi.vercel.app/ | Code: https://github.com/aijadugar/ID-Year-Detection-Using-Computer-Vision-",
+          bullets: [
+            "Trained a computer vision-based classification model to detect students’ academic year in real time with integrated audio feedback.",
+            "Optimized the system for lab assistants to quickly identify students during lab sessions, reducing identification confusion by 85%.",
+          ],
+        },
+        {
+          heading: "Technical Support SLM",
+          description: "(Llama 3.2, Unsloth, LoRA, Transformers, Hugging Face, TRL) | Live: https://huggingface.co/spaces/aijadugar/ft_slm | Code: https://github.com/aijadugar/slm-fine-tuning-technical-bot",
+          bullets: [
+            "Fine-tuned a technical support chatbot using Llama 3.2 (3B), enabling efficient training.",
+            "Implemented an end-to-end pipeline including instruction tuning, model optimization, and deployment, achieving efficient CPU inference.",
+          ],
+        },
+      ],
+    },
   },
-},
-{
-  id: "skills",
-  title: "Skills",
-  icon: <Award className="w-5 h-5" />,
-  position: "bottom-right",
-  content: {
-    subtitle: "Mastered Arts",
-    items: [
-      {
-        heading: "Technical Skills",
-        bullets: [
-          "Programming: Python, C++, C, JavaScript, SQL, Solidity",
-          "AI & ML: Machine Learning, Deep Learning, NLP, Computer Vision, Generative AI, LLMs",
-          "Frameworks & Libraries: PyTorch, TensorFlow (Keras), Scikit-learn, OpenCV, Hugging Face",
-          "Full-Stack Development: React.js, Next.js, Vue.js, Django, Flask, Node.js, Express.js",
-          "Databases & Cloud: PostgreSQL, MySQL, MongoDB, AWS, DigitalOcean, IPFS",
-          "Developer Tools: Git, GitHub, Docker, Postman, Jupyter Notebook, Google Colab"
-        ],
-      },
-      {
-        heading: "Performance Skills",
-        bullets: [
-          "Problem Solving & Analytical Thinking",
-          "Research-Oriented Mindset & Model Optimization",
-          "Leadership, Ownership & Mentoring",
-          "Cross-Team Collaboration & Communication",
-          "Hackathon Execution & Rapid Prototyping",
-          "End-to-End Project Delivery & System Design"
-        ],
-      },
-    ],
-  },
-}
+  {
+    id: "skills",
+    title: "Skills",
+    icon: <Award className="w-5 h-5" />,
+    position: "bottom-right",
+    content: {
+      subtitle: "Mastered Arts",
+      items: [
+        {
+          heading: "Technical Skills",
+          bullets: [
+            "Programming: C, C++, Python, JavaScript, SQL, Solidity",
+            "AI & ML: Machine Learning, Deep Learning, NLP, Computer Vision, Generative AI, LLMs, AI Agents, Model Fine-tuning",
+            "Frameworks & Libraries: PyTorch, TensorFlow (Keras), Transformers, Scikit-learn, OpenCV, Hugging Face",
+            "Full-Stack Development: React.js, Next.js, Vue.js, Django, Flask, FastAPI, Node.js, Express.js, Blockchain",
+            "Databases & Cloud: PostgreSQL, MySQL, MongoDB, Azure, AWS, DigitalOcean, IPFS",
+            "Developer Tools: Shell, Git, GitHub, Docker, Postman, Jupyter Notebook, Google Colab"
+          ],
+        },
+        {
+          heading: "Performance Skills",
+          bullets: [
+            "Problem Solving & Analytical Thinking",
+            "Research-Oriented Mindset & Model Optimization",
+            "Leadership, Ownership & Mentoring",
+            "Cross-Team Collaboration & Communication",
+            "Hackathon Execution & Rapid Prototyping",
+            "End-to-End Project Delivery & System Design"
+          ],
+        },
+      ],
+    },
+  }
 ]
 
 export function CornerPanels() {
@@ -177,28 +181,28 @@ export function CornerPanels() {
   const popupRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-  if (!activeSection) return
+    if (!activeSection) return
 
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === "Escape") {
-      setActiveSection(null)
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveSection(null)
+      }
     }
-  }
 
-  const handleClickOutside = (e: MouseEvent) => {
-    if (popupRef.current && !popupRef.current.contains(e.target as Node)) {
-      setActiveSection(null)
+    const handleClickOutside = (e: MouseEvent) => {
+      if (popupRef.current && !popupRef.current.contains(e.target as Node)) {
+        setActiveSection(null)
+      }
     }
-  }
 
-  window.addEventListener("keydown", handleKeyDown)
-  window.addEventListener("mousedown", handleClickOutside)
+    window.addEventListener("keydown", handleKeyDown)
+    window.addEventListener("mousedown", handleClickOutside)
 
-  return () => {
-    window.removeEventListener("keydown", handleKeyDown)
-    window.removeEventListener("mousedown", handleClickOutside)
-  }
-}, [activeSection])
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
+      window.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [activeSection])
 
   return (
     <>
@@ -209,7 +213,7 @@ export function CornerPanels() {
             key={section.id}
             className={`absolute pointer-events-auto ${getPositionClasses(section.position)}`}
             onMouseEnter={() => setActiveSection(section.id)}
-            // onMouseLeave={() => setActiveSection(null)}
+          // onMouseLeave={() => setActiveSection(null)}
           >
             <div
               className={`
@@ -269,8 +273,8 @@ export function CornerPanels() {
           onMouseLeave={() => setActiveSection(null)}
         >
           <div
-          ref={popupRef}
-          className="relative pointer-events-auto animate-fade-in">
+            ref={popupRef}
+            className="relative pointer-events-auto animate-fade-in">
             {/* Background magical glow */}
             <div
               className="absolute inset-0 -m-8 opacity-50 blur-3xl"
@@ -318,7 +322,45 @@ export function CornerPanels() {
                               <span className="text-primary text-sm">✦</span>
                               {item.heading}
                             </h3>
-                            {item.description && <p className="text-sm text-primary/80 mt-1">{item.description}</p>}
+                            {item.description && (
+                              <p className="text-sm text-primary/80 mt-1 flex flex-wrap items-center gap-2">
+                                {item.description.split("|").map((part, i) => {
+                                  if (part.includes("Live:")) {
+                                    const url = part.split("Live:")[1].trim();
+                                    return (
+                                      <a
+                                        key={i}
+                                        href={url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-1 px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 transition"
+                                      >
+                                        <ExternalLink size={14} />
+                                        Live
+                                      </a>
+                                    );
+                                  }
+
+                                  if (part.includes("Code:")) {
+                                    const url = part.split("Code:")[1].trim();
+                                    return (
+                                      <a
+                                        key={i}
+                                        href={url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-1 px-2 py-1 rounded-md bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 transition"
+                                      >
+                                        <Github size={14} />
+                                        Code
+                                      </a>
+                                    );
+                                  }
+
+                                  return <span key={i}>{part}</span>;
+                                })}
+                              </p>
+                            )}
                           </div>
                           {item.bullets && (
                             <ul className="space-y-2 ml-6">

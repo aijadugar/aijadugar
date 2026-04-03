@@ -15,17 +15,17 @@ export function ScrollIndicator() {
   ]
 
   useEffect(() => {
-  if (!isHovering) return
+    if (!isHovering) return
 
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === "Escape") {
-      setIsHovering(false)
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsHovering(false)
+      }
     }
-  }
 
-  window.addEventListener("keydown", handleKeyDown)
-  return () => window.removeEventListener("keydown", handleKeyDown)
-}, [isHovering])
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [isHovering])
 
 
   return (
@@ -37,9 +37,8 @@ export function ScrollIndicator() {
       >
         {/* TEXT (hidden on hover) */}
         <div
-          className={`flex flex-col items-center gap-2 transition-all duration-300 ${
-            isHovering ? "opacity-0 pointer-events-none" : "opacity-100 animate-bounce"
-          }`}
+          className={`flex flex-col items-center gap-2 transition-all duration-300 ${isHovering ? "opacity-0 pointer-events-none" : "opacity-100 animate-bounce"
+            }`}
         >
           <span className="text-xs font-light tracking-widest text-muted-foreground uppercase">
             WHO I AM?
@@ -55,21 +54,21 @@ export function ScrollIndicator() {
               {/* Glow */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 via-transparent to-accent/10 pointer-events-none" />
 
-              <a 
-  href="/Ankit's_CV.pdf"
-  download
-  className="group relative flex items-center gap-4 px-6 py-4 mb-4 rounded-2xl border border-primary/30 bg-gradient-to-br from-black/60 to-black/40 backdrop-blur-xl shadow-lg hover:shadow-2xl transition-all"
->
-<img
-  src="images/resume-spell.png"
-  alt="Magical Resume Bottle"
-  className="w-10 h-10 object-contain drop-shadow-[0_0_12px_rgba(255,200,120,0.6)] group-hover:scale-110 transition-transform"
-/>
+              <a
+                href="/Ankit_Bari_Resume.pdf"
+                download
+                className="group relative flex items-center gap-4 px-6 py-4 mb-4 rounded-2xl border border-primary/30 bg-gradient-to-br from-black/60 to-black/40 backdrop-blur-xl shadow-lg hover:shadow-2xl transition-all"
+              >
+                <img
+                  src="images/resume-spell.png"
+                  alt="Magical Resume Bottle"
+                  className="w-10 h-10 object-contain drop-shadow-[0_0_12px_rgba(255,200,120,0.6)] group-hover:scale-110 transition-transform"
+                />
 
-  <span className="text-sm font-medium tracking-wide text-foreground group-hover:text-primary transition-colors">
-    Download Resume
-  </span>
-</a>
+                <span className="text-sm font-medium tracking-wide text-foreground group-hover:text-primary transition-colors">
+                  Download Resume
+                </span>
+              </a>
 
               <div className="space-y-3">
                 {socialLinks.map((link) => {
