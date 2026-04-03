@@ -23,19 +23,22 @@ npx aijadugar
 ## 🧪 Skills
 
 ```bash
-> learn --mode "AI & DS Student"
-> spell --cast ai --model "ML, DL, NLP, CV, LLMs, GenerativeAI"
-> brew install python scikit-learn tensorflow keras pytorch transformers huggingface opencv
-> pip install pandas matplotlib seaborn numpy statsmodels
-> enchant --with "Neural Networks, GPT, BERT, RNNs, CNNs"
-> forge --frontend "HTML5, React.js, Vue.js, Typescript"
-> craft --backend "Django, Flask, Node.js, Express.js, Blockchain"
-> provision --cloud "AWS, DigitalOcean, IPFS"
-> init --db "PostgreSQL, MySQL, MongoDB"
-> devtools --use "VSCode, Trae, Git, GitHub, Postman, Docker, Jupyter, Colab"
-> git commit -m "Built Full-Stack AI systems using Django, Flask, Streamlit, Vue.js, React.js"
-> conjure --db "PostgreSQL" --with "Django"
-> hack --team "CodeDot" --role "Backend"
+> whoami
+"Artificial Intelligence & Data Science Student"
+> languages
+"C, C++, Python, JavaScript, SQL, Solidity"
+> ai-ml
+"Machine Learning, Deep Learning, NLP, Computer Vision, Generative AI, LLMs, AI Agents, Model Fine-tuning"
+> libraries
+"PyTorch, TensorFlow (Keras), Transformers, Scikit-learn, OpenCV, Hugging Face"
+> full-stack
+"React.js, Next.js, Vue.js, Django, Flask, FastAPI, Node.js, Express.js, Blockchain"
+> databases
+"PostgreSQL, MySQL, MongoDB"
+> cloud
+"AWS, Azure, DigitalOcean, IPFS"
+> dev-tools
+"Shell, Git, GitHub, Docker, Postman, Jupyter, Colab"
 ```
 
 ---
