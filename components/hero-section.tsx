@@ -38,10 +38,10 @@ export function HeroSection() {
             {/* Main Heading */}
             <div className="space-y-4">
               <h1 className="font-serif text-6xl font-bold leading-tight tracking-tight text-foreground lg:text-7xl xl:text-8xl text-balance">
-                {"aijadugar"}
+                {"Ankit Bari"}
               </h1>
               <p className="font-serif text-4xl font-light italic text-muted-foreground lg:text-5xl text-balance">
-                {"Master of Magic"}
+                {"AI Researcher"}
               </p>
             </div>
 
