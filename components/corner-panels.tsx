@@ -190,7 +190,11 @@ export function CornerPanels() {
     }
 
     const handleClickOutside = (e: MouseEvent) => {
-      if (popupRef.current && !popupRef.current.contains(e.target as Node)) {
+      const target = e.target as Node
+
+      if ((e.target as HTMLElement).closest("[data-no-close]")) return
+
+      if (popupRef.current && !popupRef.current.contains(target)) {
         setActiveSection(null)
       }
     }
@@ -206,184 +210,186 @@ export function CornerPanels() {
 
   return (
     <>
-      {/* Corner Panels */}
-      <div className="fixed inset-0 pointer-events-none z-40">
-        {sections.map((section) => (
-          <div
-            key={section.id}
-            className={`absolute pointer-events-auto ${getPositionClasses(section.position)}`}
-            onMouseEnter={() => setActiveSection(section.id)}
-          // onMouseLeave={() => setActiveSection(null)}
-          >
+      <div data-no-close>
+        {/* Corner Panels */}
+        <div className="fixed inset-0 pointer-events-none z-40">
+          {sections.map((section) => (
             <div
-              className={`
+              key={section.id}
+              className={`absolute pointer-events-auto ${getPositionClasses(section.position)}`}
+              onMouseEnter={() => setActiveSection(section.id)}
+            // onMouseLeave={() => setActiveSection(null)}
+            >
+              <div
+                className={`
                 relative w-32 h-32 backdrop-blur-md bg-gradient-to-br from-white/10 to-white/5
                 border border-white/20 transition-all duration-300 hover:scale-110
                 ${getCornerShape(section.position)}
                 group cursor-pointer
               `}
-              style={{
-                boxShadow: "0 0 30px rgba(255, 140, 50, 0.2), inset 0 0 20px rgba(100, 200, 255, 0.1)",
-              }}
-            >
-              {/* Magical glow effect */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{
-                  background: "radial-gradient(circle at center, rgba(255, 140, 50, 0.3), rgba(100, 200, 255, 0.3))",
-                  filter: "blur(15px)",
+                  boxShadow: "0 0 30px rgba(255, 140, 50, 0.2), inset 0 0 20px rgba(100, 200, 255, 0.1)",
+                }}
+              >
+                {/* Magical glow effect */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background: "radial-gradient(circle at center, rgba(255, 140, 50, 0.3), rgba(100, 200, 255, 0.3))",
+                    filter: "blur(15px)",
+                  }}
+                />
+
+                {/* Content */}
+                <div
+                  className={`relative z-10 h-full flex flex-col items-center justify-center gap-2 ${getContentPosition(section.position)}`}
+                >
+                  <div className="text-primary group-hover:scale-110 transition-transform">{section.icon}</div>
+                  <span className="text-xs font-semibold text-foreground/90 tracking-wider uppercase">
+                    {section.title}
+                  </span>
+                </div>
+
+                {/* Magical particles on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                  {[...Array(6)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute w-1 h-1 bg-primary rounded-full animate-float"
+                      style={{
+                        left: `${Math.random() * 100}%`,
+                        top: `${Math.random() * 100}%`,
+                        animationDelay: `${i * 0.2}s`,
+                        animationDuration: `${2 + Math.random() * 2}s`,
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Central Pop-up */}
+        {activeSection && (
+          <div
+            className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none"
+            onMouseEnter={() => setActiveSection(activeSection)}
+            onMouseLeave={() => setActiveSection(null)}
+          >
+            <div
+              ref={popupRef}
+              className="relative pointer-events-auto animate-fade-in">
+              {/* Background magical glow */}
+              <div
+                className="absolute inset-0 -m-8 opacity-50 blur-3xl"
+                style={{
+                  background: "radial-gradient(circle, rgba(255, 140, 50, 0.4), rgba(100, 200, 255, 0.4))",
                 }}
               />
 
-              {/* Content */}
+              {/* Magical particles around popup */}
+              <MagicalParticles alwaysVisible />
+
+              {/* Main pop-up content */}
               <div
-                className={`relative z-10 h-full flex flex-col items-center justify-center gap-2 ${getContentPosition(section.position)}`}
+                className="relative max-w-2xl w-[90vw] max-h-[80vh] overflow-auto backdrop-blur-xl bg-gradient-to-br from-black/80 via-black/70 to-black/60 border-2 border-white/20 rounded-3xl p-8 shadow-2xl custom-scrollbar"
+                style={{
+                  boxShadow:
+                    "0 0 60px rgba(255, 140, 50, 0.3), 0 0 100px rgba(100, 200, 255, 0.2), inset 0 0 40px rgba(255, 255, 255, 0.05)",
+                }}
               >
-                <div className="text-primary group-hover:scale-110 transition-transform">{section.icon}</div>
-                <span className="text-xs font-semibold text-foreground/90 tracking-wider uppercase">
-                  {section.title}
-                </span>
-              </div>
+                {/* Magical runes decoration */}
+                <div className="absolute top-4 right-4 text-primary/20 text-4xl font-serif">✦</div>
+                <div className="absolute bottom-4 left-4 text-accent/20 text-4xl font-serif">✧</div>
 
-              {/* Magical particles on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                {[...Array(6)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute w-1 h-1 bg-primary rounded-full animate-float"
-                    style={{
-                      left: `${Math.random() * 100}%`,
-                      top: `${Math.random() * 100}%`,
-                      animationDelay: `${i * 0.2}s`,
-                      animationDuration: `${2 + Math.random() * 2}s`,
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Central Pop-up */}
-      {activeSection && (
-        <div
-          className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none"
-          onMouseEnter={() => setActiveSection(activeSection)}
-          onMouseLeave={() => setActiveSection(null)}
-        >
-          <div
-            ref={popupRef}
-            className="relative pointer-events-auto animate-fade-in">
-            {/* Background magical glow */}
-            <div
-              className="absolute inset-0 -m-8 opacity-50 blur-3xl"
-              style={{
-                background: "radial-gradient(circle, rgba(255, 140, 50, 0.4), rgba(100, 200, 255, 0.4))",
-              }}
-            />
-
-            {/* Magical particles around popup */}
-            <MagicalParticles alwaysVisible />
-
-            {/* Main pop-up content */}
-            <div
-              className="relative max-w-2xl w-[90vw] max-h-[80vh] overflow-auto backdrop-blur-xl bg-gradient-to-br from-black/80 via-black/70 to-black/60 border-2 border-white/20 rounded-3xl p-8 shadow-2xl custom-scrollbar"
-              style={{
-                boxShadow:
-                  "0 0 60px rgba(255, 140, 50, 0.3), 0 0 100px rgba(100, 200, 255, 0.2), inset 0 0 40px rgba(255, 255, 255, 0.05)",
-              }}
-            >
-              {/* Magical runes decoration */}
-              <div className="absolute top-4 right-4 text-primary/20 text-4xl font-serif">✦</div>
-              <div className="absolute bottom-4 left-4 text-accent/20 text-4xl font-serif">✧</div>
-
-              {sections
-                .filter((s) => s.id === activeSection)
-                .map((section) => (
-                  <div key={section.id} className="animate-fade-in">
-                    {/* Header */}
-                    <div className="flex items-center gap-4 mb-6 pb-4 border-b border-white/10">
-                      <div className="text-primary">{section.icon}</div>
-                      <div>
-                        <h2 className="text-3xl font-bold text-foreground">{section.title}</h2>
-                        {section.content.subtitle && (
-                          <p className="text-muted-foreground text-sm mt-1">{section.content.subtitle}</p>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Content sections */}
-                    <div className="space-y-6">
-                      {section.content.items.map((item, idx) => (
-                        <div key={idx} className="space-y-3">
-                          <div>
-                            <h3 className="text-xl font-semibold text-foreground flex items-center gap-2">
-                              <span className="text-primary text-sm">✦</span>
-                              {item.heading}
-                            </h3>
-                            {item.description && (
-                              <p className="text-sm text-primary/80 mt-1 flex flex-wrap items-center gap-2">
-                                {item.description.split("|").map((part, i) => {
-                                  if (part.includes("Live:")) {
-                                    const url = part.split("Live:")[1].trim();
-                                    return (
-                                      <a
-                                        key={i}
-                                        href={url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-1 px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 transition"
-                                      >
-                                        <ExternalLink size={14} />
-                                        Live
-                                      </a>
-                                    );
-                                  }
-
-                                  if (part.includes("Code:")) {
-                                    const url = part.split("Code:")[1].trim();
-                                    return (
-                                      <a
-                                        key={i}
-                                        href={url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-1 px-2 py-1 rounded-md bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 transition"
-                                      >
-                                        <Github size={14} />
-                                        Code
-                                      </a>
-                                    );
-                                  }
-
-                                  return <span key={i}>{part}</span>;
-                                })}
-                              </p>
-                            )}
-                          </div>
-                          {item.bullets && (
-                            <ul className="space-y-2 ml-6">
-                              {item.bullets.map((bullet, bulletIdx) => (
-                                <li
-                                  key={bulletIdx}
-                                  className="text-foreground/80 flex items-start gap-3 leading-relaxed"
-                                >
-                                  <span className="text-primary mt-1 text-xs">▸</span>
-                                  <span>{bullet}</span>
-                                </li>
-                              ))}
-                            </ul>
+                {sections
+                  .filter((s) => s.id === activeSection)
+                  .map((section) => (
+                    <div key={section.id} className="animate-fade-in">
+                      {/* Header */}
+                      <div className="flex items-center gap-4 mb-6 pb-4 border-b border-white/10">
+                        <div className="text-primary">{section.icon}</div>
+                        <div>
+                          <h2 className="text-3xl font-bold text-foreground">{section.title}</h2>
+                          {section.content.subtitle && (
+                            <p className="text-muted-foreground text-sm mt-1">{section.content.subtitle}</p>
                           )}
                         </div>
-                      ))}
+                      </div>
+
+                      {/* Content sections */}
+                      <div className="space-y-6">
+                        {section.content.items.map((item, idx) => (
+                          <div key={idx} className="space-y-3">
+                            <div>
+                              <h3 className="text-xl font-semibold text-foreground flex items-center gap-2">
+                                <span className="text-primary text-sm">✦</span>
+                                {item.heading}
+                              </h3>
+                              {item.description && (
+                                <p className="text-sm text-primary/80 mt-1 flex flex-wrap items-center gap-2">
+                                  {item.description.split("|").map((part, i) => {
+                                    if (part.includes("Live:")) {
+                                      const url = part.split("Live:")[1].trim();
+                                      return (
+                                        <a
+                                          key={i}
+                                          href={url}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="flex items-center gap-1 px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 transition"
+                                        >
+                                          <ExternalLink size={14} />
+                                          Live
+                                        </a>
+                                      );
+                                    }
+
+                                    if (part.includes("Code:")) {
+                                      const url = part.split("Code:")[1].trim();
+                                      return (
+                                        <a
+                                          key={i}
+                                          href={url}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="flex items-center gap-1 px-2 py-1 rounded-md bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 transition"
+                                        >
+                                          <Github size={14} />
+                                          Code
+                                        </a>
+                                      );
+                                    }
+
+                                    return <span key={i}>{part}</span>;
+                                  })}
+                                </p>
+                              )}
+                            </div>
+                            {item.bullets && (
+                              <ul className="space-y-2 ml-6">
+                                {item.bullets.map((bullet, bulletIdx) => (
+                                  <li
+                                    key={bulletIdx}
+                                    className="text-foreground/80 flex items-start gap-3 leading-relaxed"
+                                  >
+                                    <span className="text-primary mt-1 text-xs">▸</span>
+                                    <span>{bullet}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   )
 }

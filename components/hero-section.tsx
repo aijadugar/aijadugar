@@ -1,4 +1,5 @@
 import { ScrollIndicator } from "@/components/scroll-indicator"
+import { RotatingRole } from "@/components/RotatingRole"
 import { Flame, Calendar } from "lucide-react"
 import Image from "next/image"
 
@@ -30,7 +31,7 @@ export function HeroSection() {
               <Flame className="h-5 w-5 text-primary filter drop-shadow-[0_0_6px_rgba(255,120,0,0.6)]" />
 
               <span className="font-light tracking-[0.2em] text-primary uppercase text-sm">
-                Experience an Extraordinary
+                No Click Portfolio
               </span>
             </div>
 
@@ -40,15 +41,16 @@ export function HeroSection() {
               <h1 className="font-serif text-6xl font-bold leading-tight tracking-tight text-foreground lg:text-7xl xl:text-8xl text-balance">
                 {"Ankit Bari"}
               </h1>
-              <p className="font-serif text-4xl font-light italic text-muted-foreground lg:text-5xl text-balance">
-                {"AI Researcher"}
-              </p>
+              <RotatingRole />
             </div>
 
             {/* Description */}
-            <p className="max-w-xl text-lg leading-relaxed text-muted-foreground/90 font-light">
+            <p
+              style={{ fontFamily: "Times New Roman, serif" }}
+              className="max-w-xl text-xl leading-relaxed text-white/85 font-light tracking-wide"
+            >
               {
-                "Researching the world of AI and integrating it into custom-built software to deliver innovative services. Contributing intelligence to open-source AI projects and uncovering the magic behind building neural networks that mimic the human brain."
+                "Researching... the world of AI and integrating it into custom-built product to deliver innovative services. Contributing intelligence to open-source AI projects and uncovering the magic behind building neural networks that mimic the human brain."
               }
             </p>
 
