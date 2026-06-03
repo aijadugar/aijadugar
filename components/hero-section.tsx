@@ -49,9 +49,16 @@ export function HeroSection() {
               style={{ fontFamily: "Times New Roman, serif" }}
               className="max-w-xl text-xl leading-relaxed text-white/85 font-light tracking-wide"
             >
-              {
-                "Researching... the world of AI and integrating it into custom-built product to deliver innovative services. Contributing intelligence to open-source AI projects and uncovering the magic behind building neural networks that mimic the human brain."
-              }
+              <span>
+                Researching🔎... the world of AI and turning ideas into real products. I'm
+                the kind of person who reads AI research papers for fun, quickly dives into
+                new technologies, and enjoys figuring out how things work under the hood.
+              </span>
+
+              <span className="block mt-2">
+                🏭Building has become such a habit that if I go too long without shipping
+                something, my parents start asking, "What did you build today?"
+              </span>
             </p>
 
           </div>
