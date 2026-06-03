@@ -46,8 +46,8 @@ const SECONDARY_LINKS: DockItem[] = [
   },
   {
     id: "email",
-    label: "vbari8527@gmail.com",
-    href: "mailto:vbari8527@gmail.com",
+    label: "bariankitvinod@gmail.com",
+    href: "mailto:bariankitvinod@gmail.com",
     icon: Mail,
   },
 ]
