@@ -30,8 +30,8 @@ export function HeroSection() {
             <div className="flex items-center gap-2">
               <Flame className="h-5 w-5 text-primary filter drop-shadow-[0_0_6px_rgba(255,120,0,0.6)]" />
 
-              <span className="font-light tracking-[0.2em] text-primary uppercase text-sm">
-                No Click Portfolio
+              <span className="font-medium tracking-wide text-primary/90 text-large">
+                Researching. Building. Open to new opportunities.
               </span>
             </div>
 

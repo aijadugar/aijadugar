@@ -179,6 +179,7 @@ const sections: Section[] = [
 export function CornerPanels() {
   const [activeSection, setActiveSection] = useState<string | null>(null)
   const popupRef = useRef<HTMLDivElement | null>(null)
+  const hoverTimeout = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     if (!activeSection) return
@@ -203,11 +204,25 @@ export function CornerPanels() {
     window.addEventListener("mousedown", handleClickOutside)
 
     return () => {
+      if (hoverTimeout.current) {
+        clearTimeout(hoverTimeout.current)
+      }
       window.removeEventListener("keydown", handleKeyDown)
       window.removeEventListener("mousedown", handleClickOutside)
     }
   }, [activeSection])
 
+  const handleMouseEnter = (section: string) => {
+    hoverTimeout.current = setTimeout(() => {
+      setActiveSection(section)
+    }, 100) // 1 second
+  }
+
+  const handleMouseLeave = () => {
+    if (hoverTimeout.current) {
+      clearTimeout(hoverTimeout.current)
+    }
+  }
   return (
     <>
       <div data-no-close>
@@ -217,8 +232,8 @@ export function CornerPanels() {
             <div
               key={section.id}
               className={`absolute pointer-events-auto ${getPositionClasses(section.position)}`}
-              onMouseEnter={() => setActiveSection(section.id)}
-            // onMouseLeave={() => setActiveSection(null)}
+              onMouseEnter={() => handleMouseEnter(section.id)}
+              onMouseLeave={handleMouseLeave}
             >
               <div
                 className={`
