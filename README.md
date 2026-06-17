@@ -1,56 +1,52 @@
-# .- / .. / .--- / .- / -.. / ..- / --. / .- / .-. // -....- // .-- / .... / . / .-. / . // - / . -.-. / .... / -. --- / .-.. / --- / --. / -.-- // -- / . / . - / ... // -- / .- / --. / .. / -.-.
+# Hi, I'm Ankit 👋
 
-*I am Ankit* ~~ **AI & Data Science student** self focused on building intelligent solutions using **Neural Networks**, **Agents**, **Generative AI**, and **Large Language Models (LLMs)**.
+Founder mindset 🧠 from day one!<br>
+Love math, as a language. <br>
+Like to learn and solve mathmatics behind models from scratch.
 
-I work with **Natural Language Processing (NLP)**, **Deep Learning**, **Machine Learning**, and **Statistics & Data Analytics**. I create **full‑stack AI systems & services** and enjoy **researching open‑source AI tools**.
+### The Great AI Engineer said,
+<div align="center">
 
----
-
-## 🌐 Portfolio
-
-🔗 **[https://aijadugar.vercel.app](https://aijadugar.vercel.app)**
-
----
-
-## 🪄 Jadugar Card
-
-```bash
-npx aijadugar
 ```
-
----
-
-## 🧪 Skills
-
-```bash
-> whoami
-"Artificial Intelligence & Data Science Student"
-> languages
-"C, C++, Python, JavaScript, SQL, Solidity"
-> ai-ml
-"Machine Learning, Deep Learning, NLP, Computer Vision, Generative AI, LLMs, AI Agents, Model Fine-tuning"
-> libraries
-"PyTorch, TensorFlow (Keras), Transformers, Scikit-learn, OpenCV, Hugging Face"
-> full-stack
-"React.js, Next.js, Vue.js, Django, Flask, FastAPI, Node.js, Express.js, Blockchain"
-> databases
-"PostgreSQL, MySQL, MongoDB"
-> cloud
-"AWS, Azure, DigitalOcean, IPFS"
-> dev-tools
-"Shell, Git, GitHub, Docker, Postman, Jupyter, Colab"
+Without math, you're an API Engineer.
+With math, you're an AI Engineer.
 ```
+</div>
+
+## But I'm building...
+
+| Domain | What I Build |
+|---|---|
+| 📄 **Text** | Language models, transformers, tokenizers |
+| 🖼️ **Image** | CNNs, diffusion models, vision transformers |
+| 🎵 **Audio** | Speech models, audio processing |
+| 🎬 **Video** | Temporal modeling, frame-level and sequence-level architectures |
+
+#### Currently somewhere in the pipeline✌️:<br>
+`read paper` → `understand nothing` → `read again` → `maybe understand` → `build anyway` → `it works???` → `read next paper`
 
 ---
 
-## 🎩 Contact the Jadugar
+## Now Exploring
 
-```bash
-> send-message --to "aijadugar" --via "vbari8527@gmail.com"
-> connect --linkedin "https://www.linkedin.com/in/aijadugar"
-> connect --github "https://github.com/aijadugar"
-```
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=aijadugar&repo=skyboy&theme=dark)](https://github.com/aijadugar)
+
+
 
 ---
 
-✨ *- .... .   ..-. ..- - ..- .-. .   .. ...   .- .. --..--   .- -. -..   ..   .- --   .--- .- -.. ..- --. .- .-.   - ---   ... .... .- .--. .   .. - -.-.-*
+## Connect
+
+<div align="center">
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/aijadugar)
+[![Twitter/X](https://img.shields.io/badge/X-Follow-000000?style=flat-square&logo=x)](https://x.com/bariankitvinod)
+[![Email](https://img.shields.io/badge/Email-Reach%20Out-EA4335?style=flat-square&logo=gmail)](mailto:bariankitvinod@gmail.com)
+
+</div>
+
+---
+
+<div align="left">
+<sub>Still assembling neurons, in the meantime, my old portfolio is gathering dust at <a href="https://aijadugar.github.io/">aijadugar.github.io</a> (it still works, I promise)</sub>
+</div>
