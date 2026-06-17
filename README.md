@@ -29,7 +29,7 @@ With math, you're an AI Engineer.
 
 ## Now Exploring
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=aijadugar&repo=skyboy&theme=dark)](https://github.com/aijadugar)
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=aijadugar&repo=skyboy&theme=dark)](https://github.com/aijadugar/skyboy)
 
 
 
