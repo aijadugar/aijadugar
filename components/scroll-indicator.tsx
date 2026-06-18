@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Github, Linkedin, Code2, Mail, Notebook, Download } from "lucide-react"
+import { Github, Linkedin, Brain, Code2, Mail, Notebook, Download } from "lucide-react"
 
 interface DockItem {
   id: string
@@ -27,6 +27,13 @@ const SECONDARY_LINKS: DockItem[] = [
     label: "LinkedIn",
     href: "https://linkedin.com/in/aijadugar",
     icon: Linkedin,
+    external: true,
+  },
+  {
+    id: "huggingface",
+    label: "Hugging Face",
+    href: "https://huggingface.co/aijadugar",
+    icon: Brain,
     external: true,
   },
   {
