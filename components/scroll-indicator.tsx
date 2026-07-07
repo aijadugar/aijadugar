@@ -10,6 +10,7 @@ import {
   Notebook,
   Download,
   ChevronUp,
+  Mail
 } from "lucide-react"
 
 interface HubItem {
@@ -48,7 +49,7 @@ const CATEGORIES: HubCategory[] = [
     id: "social",
     label: "Social",
     items: [
-      { id: "x", label: "X", href: "https://x.com/aijadugar", icon: XLogo },
+      { id: "x", label: "X", href: "https://x.com/bariankitvinod", icon: XLogo },
       { id: "linkedin", label: "LinkedIn", href: "https://linkedin.com/in/aijadugar", icon: Linkedin },
     ],
   },
@@ -57,7 +58,7 @@ const CATEGORIES: HubCategory[] = [
     label: "Competitive",
     items: [
       { id: "kaggle", label: "Kaggle", href: "https://kaggle.com/bariankitvinod", icon: Notebook },
-      { id: "dev", label: "Dev", href: "https://dev.to/aijadugar", icon: Code2 },
+      { id: "leetcode", label: "Leetcode", href: "https://leetcode.com/u/aijadugar/", icon: Code2 },
     ],
   },
 ]
@@ -288,12 +289,83 @@ function HubPanel() {
         style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.12), transparent)" }}
       />
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-4 gap-y-5 px-4 sm:px-5 pb-6 pt-2 max-h-[50vh] overflow-y-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-4 gap-y-5 px-4 sm:px-5 pt-2 max-h-[50vh] overflow-y-auto">
         {CATEGORIES.map((category) => (
           <HubColumn key={category.id} category={category} />
         ))}
       </div>
+
+      <div
+        className="h-px mx-6 mt-1 mb-2"
+        style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.10), transparent)" }}
+      />
+
+      <div
+        className="h-px mx-6 mt-1 mb-2"
+        style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.10), transparent)" }}
+      />
+
+      <div className="px-4 sm:px-5 pb-5">
+        <EmailRow />
+      </div>
     </motion.div>
+  )
+}
+
+function EmailRow() {
+  const [isHovered, setIsHovered] = useState(false)
+  const email = "bariankitvinod@gmail.com"
+
+  return (
+    <a
+      href={`mailto:${email}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onFocus={() => setIsHovered(true)}
+      onBlur={() => setIsHovered(false)}
+      className="relative flex items-center gap-2.5 px-3 py-2.5 rounded-lg cursor-pointer select-none outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+      aria-label={`Email ${email}`}
+    >
+      <AnimatePresence>
+        {isHovered && (
+          <motion.span
+            className="absolute inset-0 rounded-lg bg-white/[0.08] border border-white/10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={SPRING}
+            style={{ zIndex: 0 }}
+          />
+        )}
+      </AnimatePresence>
+
+      <Mail
+        className="relative z-10 w-4 h-4 shrink-0 transition-colors duration-200"
+        style={{ color: isHovered ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.55)" }}
+      />
+
+      <span className="relative z-10 flex items-baseline gap-2 min-w-0 flex-1 flex-wrap">
+        <span
+          className="shrink-0 text-xs transition-colors duration-200"
+          style={{
+            color: isHovered ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.4)",
+            fontFamily: "'DM Mono', 'Fira Mono', monospace",
+          }}
+        >
+          or slide into my inbox
+        </span>
+        <span
+          className="truncate text-sm font-medium tracking-tight transition-colors duration-200"
+          style={{
+            color: isHovered ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.55)",
+            fontFamily: "'DM Mono', 'Fira Mono', monospace",
+            fontSize: "0.8125rem",
+          }}
+        >
+          {email}
+        </span>
+      </span>
+    </a>
   )
 }
 
