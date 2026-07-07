@@ -1,4 +1,4 @@
-import { ScrollIndicator } from "@/components/scroll-indicator"
+import { ProfileDock } from "@/components/scroll-indicator"
 import { RotatingRole } from "@/components/RotatingRole"
 import { Flame, Calendar } from "lucide-react"
 import Image from "next/image"
@@ -31,7 +31,7 @@ export function HeroSection() {
               <Flame className="h-5 w-5 text-primary filter drop-shadow-[0_0_6px_rgba(255,120,0,0.6)]" />
 
               <span className="font-medium tracking-wide text-primary/90 text-large">
-                Researching. Building. Open to new opportunities.
+                Open to new opportunities.
               </span>
             </div>
 
@@ -50,14 +50,14 @@ export function HeroSection() {
               className="max-w-xl text-xl leading-relaxed text-white/85 font-light tracking-wide"
             >
               <span>
-                Researching🔎... the world of AI and turning ideas into real products. I'm
-                the kind of person who reads AI research papers for fun, quickly dives into
-                new technologies, and enjoys figuring out how things work under the hood.
+                Researching the world of AI and turning ideas into real products. I'm the kind
+                of person who reads AI research papers for fun, dives headfirst into new
+                technologies, and loves figuring out how things work under the hood. 🔎
               </span>
 
               <span className="block mt-2">
-                🏭Building has become such a habit that if I go too long without shipping
-                something, my parents start asking, "What did you build today?"
+                Building has become such a habit that if I go too long without shipping
+                something, my parents start asking, "What did you build today?" 🚀
               </span>
             </p>
 
@@ -66,7 +66,7 @@ export function HeroSection() {
       </div>
 
       {/* Scroll Indicator */}
-      <ScrollIndicator />
+      <ProfileDock />
     </section>
   )
 }

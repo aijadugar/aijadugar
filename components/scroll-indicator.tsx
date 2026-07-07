@@ -1,144 +1,78 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Github, Linkedin, Brain, Code2, Mail, Notebook, Download } from "lucide-react"
+import {
+  Github,
+  Linkedin,
+  Brain,
+  Code2,
+  Notebook,
+  Download,
+  ChevronUp,
+} from "lucide-react"
 
-interface DockItem {
+interface HubItem {
   id: string
   label: string
-  shortLabel?: string
   href: string
   icon: React.ElementType
-  isDownload?: boolean
-  external?: boolean
 }
 
-const SECONDARY_LINKS: DockItem[] = [
-  {
-    id: "github",
-    label: "GitHub",
-    href: "https://github.com/aijadugar",
-    icon: Github,
-    external: true,
-  },
-  {
-    id: "linkedin",
-    label: "LinkedIn",
-    href: "https://linkedin.com/in/aijadugar",
-    icon: Linkedin,
-    external: true,
-  },
-  {
-    id: "huggingface",
-    label: "Hugging Face",
-    href: "https://huggingface.co/aijadugar",
-    icon: Brain,
-    external: true,
-  },
-  {
-    id: "kaggle",
-    label: "Kaggle",
-    href: "https://kaggle.com/bariankitvinod",
-    icon: Notebook,
-    external: true,
-  },
-  {
-    id: "leetcode",
-    label: "LeetCode",
-    shortLabel: "LC",
-    href: "https://leetcode.com/u/aijadugar",
-    icon: Code2,
-    external: true,
-  },
-  {
-    id: "email",
-    label: "bariankitvinod@gmail.com",
-    href: "mailto:bariankitvinod@gmail.com",
-    icon: Mail,
-  },
-]
-
-const HOVER_SPRING = {
-  type: "spring" as const,
-  stiffness: 380,
-  damping: 30,
-  mass: 0.6,
+interface HubCategory {
+  id: string
+  label: string
+  items: HubItem[]
 }
 
-const PRESS_SCALE = { scale: 0.96 }
-const HOVER_SCALE = { scale: 1.02 }
-
-interface DockButtonProps {
-  item: DockItem
-  isHovered: boolean
-  onHover: (id: string | null) => void
-  layoutId: string
-}
-
-function DockButton({ item, isHovered, onHover, layoutId }: DockButtonProps) {
-  const Icon = item.icon
-
-  const Tag = item.href.startsWith("mailto") ? "a" : item.isDownload ? "a" : "a"
-
+// Minimal inline logo for X (Twitter) — not in every lucide build,
+// so it's drawn by hand to guarantee it renders.
+function XLogo({ className }: { className?: string }) {
   return (
-    <motion.a
-      href={item.href}
-      download={item.isDownload ? "" : undefined}
-      target={item.external ? "_blank" : undefined}
-      rel={item.external ? "noopener noreferrer" : undefined}
-      className="relative flex items-center gap-2 px-4 py-2.5 rounded-xl cursor-pointer select-none outline-none focus-visible:ring-2 focus-visible:ring-white/30"
-      onHoverStart={() => onHover(item.id)}
-      onHoverEnd={() => onHover(null)}
-      onFocus={() => onHover(item.id)}
-      onBlur={() => onHover(null)}
-      whileHover={HOVER_SCALE}
-      whileTap={PRESS_SCALE}
-      transition={HOVER_SPRING}
-      aria-label={item.label}
-    >
-      {/* Shared sliding highlight */}
-      <AnimatePresence>
-        {isHovered && (
-          <motion.span
-            layoutId={layoutId}
-            className="absolute inset-0 rounded-xl bg-white/[0.07] border border-white/10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={HOVER_SPRING}
-            style={{ zIndex: 0 }}
-          />
-        )}
-      </AnimatePresence>
-
-      <Icon
-        className="relative z-10 w-4 h-4 text-white/60 transition-colors duration-200"
-        style={{ color: isHovered ? "rgba(255,255,255,0.95)" : undefined }}
-        aria-hidden="true"
-      />
-      <span
-        className="relative z-10 text-sm font-medium tracking-tight transition-colors duration-200"
-        style={{
-          color: isHovered ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.50)",
-          fontFamily: "'DM Mono', 'Fira Mono', monospace",
-          fontSize: "0.8125rem",
-          letterSpacing: "0.01em",
-        }}
-      >
-        {item.label}
-      </span>
-    </motion.a>
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
   )
 }
 
-function ResumeCTA() {
+const CATEGORIES: HubCategory[] = [
+  {
+    id: "productive",
+    label: "Productive",
+    items: [
+      { id: "github", label: "GitHub", href: "https://github.com/aijadugar", icon: Github },
+      { id: "huggingface", label: "Hugging Face", href: "https://huggingface.co/aijadugar", icon: Brain },
+    ],
+  },
+  {
+    id: "social",
+    label: "Social",
+    items: [
+      { id: "x", label: "X", href: "https://x.com/aijadugar", icon: XLogo },
+      { id: "linkedin", label: "LinkedIn", href: "https://linkedin.com/in/aijadugar", icon: Linkedin },
+    ],
+  },
+  {
+    id: "competitive",
+    label: "Competitive",
+    items: [
+      { id: "kaggle", label: "Kaggle", href: "https://kaggle.com/bariankitvinod", icon: Notebook },
+      { id: "dev", label: "Dev", href: "https://dev.to/aijadugar", icon: Code2 },
+    ],
+  },
+]
+
+const SPRING = { type: "spring" as const, stiffness: 380, damping: 30, mass: 0.6 }
+const POPUP_SPRING = { type: "spring" as const, stiffness: 300, damping: 28, mass: 0.7 }
+
+function ResumeCTA({ onOpen }: { onOpen: () => void }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
     <motion.a
       href="/Ankit_Bari_Resume.pdf"
       download
+      onClick={onOpen}
       className="relative flex items-center gap-3 px-5 py-3 rounded-xl cursor-pointer select-none outline-none focus-visible:ring-2 focus-visible:ring-white/40 overflow-hidden"
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
@@ -146,8 +80,8 @@ function ResumeCTA() {
       onBlur={() => setIsHovered(false)}
       whileHover={{ scale: 1.025 }}
       whileTap={{ scale: 0.97 }}
-      transition={HOVER_SPRING}
-      aria-label="Download Resume"
+      transition={SPRING}
+      aria-label="Download resume and open profile hub"
       style={{
         background: "linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.05) 100%)",
         border: "1px solid rgba(255,255,255,0.14)",
@@ -156,7 +90,6 @@ function ResumeCTA() {
           : "0 2px 12px rgba(0,0,0,0.25)",
       }}
     >
-      {/* Animated shimmer sweep on hover */}
       <motion.span
         className="pointer-events-none absolute inset-0 rounded-xl"
         animate={
@@ -172,7 +105,6 @@ function ResumeCTA() {
         transition={{ duration: 0.55, ease: "easeOut" }}
       />
 
-      {/* Icon */}
       <span className="relative z-10 flex items-center justify-center w-7 h-7 rounded-lg bg-white/10">
         <Download
           className="w-3.5 h-3.5"
@@ -180,7 +112,6 @@ function ResumeCTA() {
         />
       </span>
 
-      {/* Label */}
       <span className="relative z-10 flex flex-col leading-none">
         <span
           className="text-[0.7rem] uppercase tracking-[0.14em] font-semibold transition-colors duration-200"
@@ -202,87 +133,234 @@ function ResumeCTA() {
           Résumé
         </span>
       </span>
-
-      {/* Right arrow glyph */}
-      <motion.span
-        className="relative z-10 ml-1 text-xs"
-        animate={{ x: isHovered ? 2 : 0, opacity: isHovered ? 0.8 : 0.35 }}
-        transition={HOVER_SPRING}
-        style={{ color: "rgba(255,255,255,0.9)" }}
-        aria-hidden="true"
-      >
-        ↓
-      </motion.span>
     </motion.a>
   )
 }
 
-function Divider() {
+function HubToggle({ open, onToggle }: { open: boolean; onToggle: () => void }) {
+  const [isHovered, setIsHovered] = useState(false)
+
   return (
-    <span
-      className="hidden sm:block self-stretch w-px mx-1"
-      style={{ background: "linear-gradient(to bottom, transparent, rgba(255,255,255,0.12), transparent)" }}
-      aria-hidden="true"
-    />
+    <motion.button
+      type="button"
+      onClick={onToggle}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      onFocus={() => setIsHovered(true)}
+      onBlur={() => setIsHovered(false)}
+      whileHover={{ scale: 1.06 }}
+      whileTap={{ scale: 0.92 }}
+      transition={SPRING}
+      aria-label={open ? "Close profile hub" : "Open profile hub"}
+      aria-expanded={open}
+      className="relative flex items-center justify-center w-11 h-11 rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+      style={{
+        background: isHovered || open ? "rgba(255,255,255,0.09)" : "rgba(255,255,255,0.04)",
+        border: "1px solid rgba(255,255,255,0.12)",
+      }}
+    >
+      <motion.span
+        animate={{ rotate: open ? 180 : 0 }}
+        transition={SPRING}
+        className="flex items-center justify-center"
+      >
+        <ChevronUp
+          className="w-4 h-4"
+          style={{ color: isHovered || open ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.55)" }}
+        />
+      </motion.span>
+    </motion.button>
   )
 }
 
-export function ScrollIndicator() {
+function HubColumn({ category }: { category: HubCategory }) {
   const [hoveredId, setHoveredId] = useState<string | null>(null)
-
-  const LAYOUT_ID = "dock-hover-pill"
+  const layoutId = `hub-pill-${category.id}`
 
   return (
-    <div
-      className="fixed bottom-2 left-1/2 z-50 -translate-x-1/2"
-      role="navigation"
-      aria-label="Profile links and resume"
-    >
-      {/* Outer glow halo — very subtle */}
-      <div
-        className="absolute -inset-4 rounded-3xl pointer-events-none"
+    <div className="flex flex-col min-w-0">
+      <span
+        className="mb-2 px-1 text-[0.65rem] uppercase tracking-[0.16em] font-semibold"
         style={{
-          background:
-            "radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.04) 0%, transparent 70%)",
+          color: "rgba(255,255,255,0.38)",
+          fontFamily: "'DM Mono', 'Fira Mono', monospace",
         }}
-        aria-hidden="true"
+      >
+        {category.label}
+      </span>
+
+      <div className="flex flex-col gap-0.5" role="list">
+        {category.items.map((item) => {
+          const Icon = item.icon
+          const isHovered = hoveredId === item.id
+          return (
+            <a
+              key={item.id}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              role="listitem"
+              onMouseEnter={() => setHoveredId(item.id)}
+              onMouseLeave={() => setHoveredId(null)}
+              onFocus={() => setHoveredId(item.id)}
+              onBlur={() => setHoveredId(null)}
+              className="relative flex items-center gap-2.5 px-3 py-2.5 rounded-lg cursor-pointer select-none outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+              aria-label={item.label}
+            >
+              <AnimatePresence>
+                {isHovered && (
+                  <motion.span
+                    layoutId={layoutId}
+                    className="absolute inset-0 rounded-lg bg-white/[0.08] border border-white/10"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={SPRING}
+                    style={{ zIndex: 0 }}
+                  />
+                )}
+              </AnimatePresence>
+
+              <Icon
+                className="relative z-10 w-4 h-4 shrink-0 transition-colors duration-200"
+                style={{ color: isHovered ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.55)" }}
+              />
+              <span
+                className="relative z-10 text-sm font-medium tracking-tight truncate transition-colors duration-200"
+                style={{
+                  color: isHovered ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.55)",
+                  fontFamily: "'DM Mono', 'Fira Mono', monospace",
+                  fontSize: "0.8125rem",
+                }}
+              >
+                {item.label}
+              </span>
+            </a>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+function HubPanel() {
+  return (
+    <motion.div
+      role="dialog"
+      aria-label="Ankit's Hub"
+      aria-modal="true"
+      onClick={(e) => e.stopPropagation()}
+      initial={{ opacity: 0, y: 24, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 24, scale: 0.96 }}
+      transition={POPUP_SPRING}
+      className="fixed left-1/2 -translate-x-1/2 z-50 w-[calc(100vw-2rem)] max-w-[560px] bottom-24 sm:bottom-28"
+      style={{
+        background: "rgba(10, 10, 12, 0.86)",
+        backdropFilter: "blur(24px) saturate(160%)",
+        WebkitBackdropFilter: "blur(24px) saturate(160%)",
+        border: "1px solid rgba(255,255,255,0.10)",
+        boxShadow: "0 12px 48px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.05) inset",
+        borderRadius: "1.25rem",
+      }}
+    >
+      <div className="px-6 pt-6 pb-2">
+        <h2
+          className="text-lg font-semibold tracking-tight"
+          style={{
+            color: "rgba(255,255,255,0.95)",
+            fontFamily: "'DM Sans', 'Geist', sans-serif",
+            letterSpacing: "-0.01em",
+          }}
+        >
+          Ankit's Hub
+        </h2>
+        <p
+          className="mt-1 text-xs"
+          style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'DM Mono', 'Fira Mono', monospace" }}
+        >
+          find me around the internet
+        </p>
+      </div>
+
+      <div
+        className="h-px mx-6 my-2"
+        style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.12), transparent)" }}
       />
 
-      {/* Dock container */}
-      <motion.div
-        className="relative flex flex-wrap sm:flex-nowrap items-center gap-1 sm:gap-1.5 px-2 py-2 rounded-2xl"
-        style={{
-          background: "rgba(10, 10, 12, 0.82)",
-          backdropFilter: "blur(20px) saturate(160%)",
-          WebkitBackdropFilter: "blur(20px) saturate(160%)",
-          border: "1px solid rgba(255,255,255,0.09)",
-          boxShadow:
-            "0 4px 24px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.05) inset",
-        }}
-        initial={{ opacity: 0, y: 16, scale: 0.97 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-4 gap-y-5 px-4 sm:px-5 pb-6 pt-2 max-h-[50vh] overflow-y-auto">
+        {CATEGORIES.map((category) => (
+          <HubColumn key={category.id} category={category} />
+        ))}
+      </div>
+    </motion.div>
+  )
+}
+
+export function ProfileDock() {
+  const [open, setOpen] = useState(false)
+
+  // Close on Escape
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false)
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [open])
+
+  return (
+    <>
+      {/* Backdrop — click anywhere on it (or any background pop-up) to close */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="fixed inset-0 z-40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setOpen(false)}
+            style={{ background: "rgba(0,0,0,0.35)" }}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Hub popup */}
+      <AnimatePresence>{open && <HubPanel />}</AnimatePresence>
+
+      {/* Dock — always visible, never hidden by the popup */}
+      <div
+        className="fixed bottom-2 left-1/2 z-50 -translate-x-1/2"
+        role="navigation"
+        aria-label="Resume and profile hub"
       >
-        {/* Primary CTA */}
-        <ResumeCTA />
+        <div
+          className="absolute -inset-4 rounded-3xl pointer-events-none"
+          style={{
+            background: "radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.04) 0%, transparent 70%)",
+          }}
+          aria-hidden="true"
+        />
 
-        {/* Divider */}
-        <Divider />
-
-        {/* Secondary links with shared hover indicator */}
-        <div className="flex items-center gap-0.5" role="list">
-          {SECONDARY_LINKS.map((item) => (
-            <div key={item.id} role="listitem">
-              <DockButton
-                item={item}
-                isHovered={hoveredId === item.id}
-                onHover={setHoveredId}
-                layoutId={LAYOUT_ID}
-              />
-            </div>
-          ))}
-        </div>
-      </motion.div>
-    </div>
+        <motion.div
+          className="relative flex items-center gap-1.5 px-2 py-2 rounded-2xl"
+          style={{
+            background: "rgba(10, 10, 12, 0.82)",
+            backdropFilter: "blur(20px) saturate(160%)",
+            WebkitBackdropFilter: "blur(20px) saturate(160%)",
+            border: "1px solid rgba(255,255,255,0.09)",
+            boxShadow: "0 4px 24px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.05) inset",
+          }}
+          initial={{ opacity: 0, y: 16, scale: 0.97 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+        >
+          <ResumeCTA onOpen={() => setOpen(true)} />
+          <HubToggle open={open} onToggle={() => setOpen((v) => !v)} />
+        </motion.div>
+      </div>
+    </>
   )
 }
