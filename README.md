@@ -11,15 +11,6 @@ With math, you're an AI Engineer.
 ``
 </div>
 
-## I'm building...
-
-| Domain | What I Build |
-|---|---|
-| 📄 **Text** | Language models, transformers, tokenizers |
-| 🖼️ **Image** | CNNs, diffusion models, vision transformers |
-| 🎵 **Audio** | Speech models, audio processing |
-| 🎬 **Video** | Frame-level and sequence-level architectures |
-
 ---
 
 ## Currently building (Work in progress...)
