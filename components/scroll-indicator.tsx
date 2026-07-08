@@ -300,11 +300,6 @@ function HubPanel() {
         style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.10), transparent)" }}
       />
 
-      <div
-        className="h-px mx-6 mt-1 mb-2"
-        style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.10), transparent)" }}
-      />
-
       <div className="px-4 sm:px-5 pb-5">
         <EmailRow />
       </div>
