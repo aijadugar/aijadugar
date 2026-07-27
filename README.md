@@ -15,7 +15,7 @@ With math, you're an AI Engineer.
 
 ## Currently building (Work in progress...)
 
-- **[Skyboy](https://github.com/aijadugar/skyboy)** - : Production-ready software and AI system design patterns.
+- **[Patterned](https://github.com/aijadugar/skyboy)** - : Production-ready software and AI system design patterns.
 - **[GhostForm](https://github.com/aijadugar/GhostForm)** - : Fills web forms with realistic fake identities to protect users from exposing personal data.
 - **[SiteVPN](https://sitevpn.me)** - : Empowering online freedom.
 - **[nanoimports](https://pypi.org/project/nanoimports)** - : Python import system that auto-resolves, installs, and caches missing dependencies.
