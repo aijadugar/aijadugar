@@ -28,6 +28,7 @@ With math, you're an AI Engineer.
 
 ## Completed work
 
+- **[wa-sarvam](https://github.com/aijadugar/wa-sarvam)** - : WhatsApp notification router built on Sarvam AI, run entirely from the terminal.
 - **[LinkedIn-style People You May Know](https://pymk.vercel.app)** - : A “People You May Know” recommendation system using graph dataset (ML & DL pipeline).
 - **[Tech Bot](https://huggingface.co/spaces/aijadugar/ft_slm)** - : A fine-tuned lightweight LLM for fast technical support automation.
 - **[aynlp](https://pypi.org/project/aynlp)** - Advanced yet simple NLP toolkit for developers.
