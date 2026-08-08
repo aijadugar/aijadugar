@@ -17,7 +17,6 @@ With math, you're an AI Engineer.
 
 - **[Patterned](https://github.com/aijadugar/skyboy)** - : Production-ready software and AI system design patterns.
 - **[SiteVPN](https://sitevpn.me)** - : Empowering online freedom.
-- **[nanoimports](https://pypi.org/project/nanoimports)** - : Python import system that auto-resolves, installs, and caches missing dependencies.
 
 ## Featured Products
 
@@ -32,6 +31,7 @@ With math, you're an AI Engineer.
 - **[LinkedIn-style People You May Know](https://pymk.vercel.app)** - : A “People You May Know” recommendation system using graph dataset (ML & DL pipeline).
 - **[Tech Bot](https://huggingface.co/spaces/aijadugar/ft_slm)** - : A fine-tuned lightweight LLM for fast technical support automation.
 - **[aynlp](https://pypi.org/project/aynlp)** - Advanced yet simple NLP toolkit for developers.
+- **[nanoimports](https://pypi.org/project/nanoimports)** - : Python import system that auto-resolves, installs, and caches missing dependencies.
 - **[RepoMind Agent](https://repo-mind-agent.vercel.app)** - Analyzes repositories and generates insightful reports using an agent-based system.
 - **[Synapse Ledger](https://bnb-25-nine.vercel.app)** - A platform where dataset contributors earn payouts when developers buy or use their data for AI training.
 - **[ID Year Detection Using CV](https://id-year-detection-using-computer-vi.vercel.app)** - A system that identifies students’ academic year from ID card color.
