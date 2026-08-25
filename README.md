@@ -42,6 +42,7 @@ With math, you're an AI Engineer.
 
 ## Workflow & Tool Integration Projects
 
+- **[Fermes](https://github.com/aijadugar/fermes)** - Fermes agent helps anyone growing something.
 - **[AutoForge Agent](https://github.com/aijadugar/AutoForge-Autonomous-Coding-Agent-Scaffold)** - Autonomous coding agent framework.
 - **[Peer-3000](https://github.com/aijadugar/Peer-3000)** - Solution of AMR system that detects and moves ready pallets autonomously.
 - **[Tool Dependency Graph](https://github.com/aijadugar/tool-dependency-graph)** - Showing prerequisite actions for agent execution workflows.
