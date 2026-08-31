@@ -13,11 +13,6 @@ With math, you're an AI Engineer.
 
 ---
 
-## Currently building (Work in progress...)
-
-- **[Patterned](https://github.com/aijadugar/skyboy)** - : Production-ready software and AI system design patterns.
-- **[SiteVPN](https://sitevpn.me)** - : Empowering online freedom.
-
 ## Featured Products
 
 - **[YAR Coin](https://yarcoin.vercel.app)** - : A decentralized incentive system powered by auctions, NFTs, DEX, and real-time governance on Sepolia.
