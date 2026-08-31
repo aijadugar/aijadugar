@@ -3,7 +3,6 @@
 Love math, as a language. <br>
 Like to read papers and solve mathmatics behind models from scratch.
 
----
 
 ## Featured Products
 
