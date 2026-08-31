@@ -3,14 +3,6 @@
 Love math, as a language. <br>
 Like to read papers and solve mathmatics behind models from scratch.
 
-### The Great AI Engineer said,
-<div align="center">
-``
-Without math, you're an API Engineer.
-With math, you're an AI Engineer.
-``
-</div>
-
 ---
 
 ## Featured Products
