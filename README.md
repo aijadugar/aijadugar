@@ -13,6 +13,7 @@ Like to read papers and solve mathmatics behind models from scratch.
 
 ## Completed work
 
+- **[Mini-Interfaze](https://huggingface.co/spaces/aijadugar/mini-interfaze-receipt-extractor)** - : CRNN + transformer decoder with a fused CUDA RMSNorm kernel, deployed via Gradio + safetensors on Hugging Face Spaces.
 - **[WisprFlow Clone](https://huggingface.co/spaces/aijadugar/wisprflow-clone)** - : A Wispr Flow-style pipeline.
 - **[wa-sarvam](https://github.com/aijadugar/wa-sarvam)** - : WhatsApp notification router built on Sarvam AI, run entirely from the terminal.
 - **[LinkedIn-style People You May Know](https://pymk.vercel.app)** - : A “People You May Know” recommendation system using graph dataset (ML & DL pipeline).
