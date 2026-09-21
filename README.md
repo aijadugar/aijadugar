@@ -3,6 +3,7 @@
 Love math, as a language. <br>
 Like to read papers and solve mathmatics behind models from scratch.
 
+**read more:** [ankitbari.vercel.app](https://ankitbari.vercel.app/)
 
 ## Featured Products
 
