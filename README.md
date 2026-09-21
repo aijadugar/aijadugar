@@ -55,8 +55,3 @@ Like to read papers and solve mathmatics behind models from scratch.
 [![Email](https://img.shields.io/badge/Email-Reach%20Out-EA4335?style=flat-square&logo=gmail)](mailto:bariankitvinod@gmail.com)
 
 </div>
-
----
-<div align="left">
-<sub>Still assembling neurons, my old portfolio is gathering dust at <a href="https://aijadugar.github.io/">aijadugar.github.io</a> (it still works, I promise)</sub>
-</div>
