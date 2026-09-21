@@ -40,7 +40,7 @@ Like to read papers and solve mathmatics behind models from scratch.
 
 ## Personal Ops
 
-- **[aijadugar](https://github.com/aijadugar/aijadugar)** - Portfolio
+- **[aijadugar.github.io](https://github.com/aijadugar/aijadugar.github.io)**, **[aijadugar](https://github.com/aijadugar/aijadugar)**, **[ankitbari](https://github.com/aijadugar/ankitbari)** - Portfolios
 - **[npx-aijadugar](https://github.com/aijadugar/npx-aijadugar)** - npx Card
 - **[Mr. AI&DS](https://github.com/aijadugar/Mr.AI-DS)** - My journey in Artificial Intelligence & Data Science.
 
