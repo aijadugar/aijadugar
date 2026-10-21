@@ -14,6 +14,7 @@ Like to read papers and solve mathmatics behind models from scratch.
 
 ## Completed work
 
+- **[Social Hustle](https://github.com/aijadugar/social-hustle)** - : A done-for-you social media engine for small-business clients.
 - **[Mini-Interfaze](https://huggingface.co/spaces/aijadugar/mini-interfaze-receipt-extractor)** - : CRNN + transformer decoder with a fused CUDA RMSNorm kernel, deployed via Gradio + safetensors on Hugging Face Spaces.
 - **[WisprFlow Clone](https://huggingface.co/spaces/aijadugar/wisprflow-clone)** - : A Wispr Flow-style pipeline.
 - **[wa-sarvam](https://github.com/aijadugar/wa-sarvam)** - : WhatsApp notification router built on Sarvam AI, run entirely from the terminal.
